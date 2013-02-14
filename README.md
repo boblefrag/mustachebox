@@ -81,5 +81,7 @@ monitor_backend. This backend exist for testing and example purpose.
 
 To start playing with mustachebox, you can visit :
 
-http://localhost:8000/graphs/monitoring/
+(http://localhost:8000/graphs/monitoring/)
+
+This software is released under [GPLv3](http://www.gnu.org/licenses/gpl.html)
 
