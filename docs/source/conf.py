@@ -18,12 +18,12 @@ import sys, os
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #sys.path.insert(0, os.path.abspath('.'))
 
-sys.path.insert(0, os.path.abspath('../../../'))
-project_path = os.path.dirname(os.path.abspath('../../../settings.py'))
-homedir, appname = os.path.split(project_path)
-sys.path.insert(0, project_path)
-sys.path.insert(0, homedir)
-os.environ['DJANGO_SETTINGS_MODULE'] = "%s.settings" % appname
+# sys.path.insert(0, os.path.abspath('../../../'))
+# project_path = os.path.dirname(os.path.abspath('../../../settings.py'))
+# homedir, appname = os.path.split(project_path)
+# sys.path.insert(0, project_path)
+# sys.path.insert(0, homedir)
+# os.environ['DJANGO_SETTINGS_MODULE'] = "%s.settings" % appname
 
 # -- General configuration -----------------------------------------------------
 
