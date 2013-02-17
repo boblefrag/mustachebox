@@ -11,7 +11,7 @@ var formatNumber = d3.format(",d"),
     formatTime = d3.time.format("%I:%M %p");
 // chart var
 var gBrush, extent;
-
+var url;
 "use strict";
 
 // Like d3.time.format, but faster.
@@ -375,7 +375,7 @@ function update_graph(records) {
 function updateState(){
     $.ajax({
         type:"GET",
-        url: window.location.pathname,
+        url: url,
         success: function(response){
             update_graph(response)
         }
@@ -383,6 +383,12 @@ function updateState(){
 };
 
 $(document).ready(function(){
+if (typeof(remote_url) === 'undefined') {
+    url = window.location.pathname
+    }else{
+        url = remote_url
+    }
+    console.log(url)
    setInterval( "updateState()", 6000 );
     updateState()
 })

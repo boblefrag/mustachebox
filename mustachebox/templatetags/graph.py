@@ -19,6 +19,7 @@ def do_graph_node(parser, token):
         raise template.TemplateSyntaxError, """
 %r tag requires at least 1 argument, the name of the graph you want to render
 """.format(token.contents.split()[0])
+        
     return GraphNode(method, *args)
 
 
@@ -32,14 +33,18 @@ class GraphNode(template.Node):
             )
         klass = getattr(backend, "Backend")
         self.obj = klass(name=self.method, *self.args)
-        print self.obj.__dict__
+
     def render(self, context):
+        print context['STATIC_URL']
         t = template.loader.get_template(
             'mustachebox/tags/{0}.html'.format(self.method)
             )
+        print self.obj.name
         return t.render(
             template.Context(
-                {'object': self.obj}, autoescape=context.autoescape)
+                {'object': self.obj,
+                 "STATIC_URL":context['STATIC_URL']},
+                 autoescape=context.autoescape)
             )
 
 register.tag('graph', do_graph_node)
