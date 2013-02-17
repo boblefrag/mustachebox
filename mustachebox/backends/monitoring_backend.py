@@ -2,6 +2,8 @@ import json
 import datetime
 import time
 import random
+
+
 class Backend(object):
     """
     A backend get data formated as mustache need them.
@@ -12,8 +14,8 @@ class Backend(object):
 
     def __init__(self, **kwargs):
         self.template = None
-        self.name = kwargs['slug']
-        self.data = json.dumps(self.fetch(kwargs['slug']))
+        self.name = kwargs['name']
+        self.data = json.dumps(self.fetch(kwargs['name']))
 
 
     def fetch(self, method):

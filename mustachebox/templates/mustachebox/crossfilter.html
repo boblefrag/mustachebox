@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load graph %}
 {% block js %}
 {% include "mustachebox/includes/jsheader.html" %}
  <script type="text/javascript"
@@ -190,5 +191,5 @@ width: 220px;
 <div id="lists">
   <div id="record-list" class="list"></div>
 </div>
-
+{% graph monitoring %}
 {% endblock body %}

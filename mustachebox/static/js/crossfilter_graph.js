@@ -273,7 +273,6 @@ function barChart() {
 
 
 function update_graph(records) {
-    console.log(records)
     // A nest operator, for grouping the record list.
     nestByDate = d3.nest()
         .key(function (d) {return d.instance; });

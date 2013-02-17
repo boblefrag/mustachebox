@@ -8,3 +8,5 @@ local_settings.py
 media/*
 *~
 mustachebox/static/js/metrics.json
+grapher
+manage.py

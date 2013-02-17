@@ -5,7 +5,7 @@
 ## Description
 
 Mustache Box is a set of utilities to help you presenting graph of
-various data in a Django Project. Data can come from whaterver source you want :
+various data in a Django Project. Data can come from whatever source you want :
 
 * Distant API
 * Couchdb databases
@@ -22,7 +22,7 @@ various data in a Django Project. Data can come from whaterver source you want :
 * A template: the template is a classic HTML file made to hold your
 graph. You can use some predefine template or use your custom one
 
-* a javasccript file : the javascript file take your data and render a
+* a javascript file : the javascript file take your data and render a
   graph using the external dependencies you need (jquery, d3js, raphaël, etc...)
 
 ### Features
@@ -34,7 +34,7 @@ Of course there is serval features you gain with this architecture :
   you. Of course, if you don't like this feature, you can design your
   own urls for each graphs.
 
-* request/ajax response : each url responde either to classic request
+* request/ajax response : each url responds either to classic request
   ( rendering a template with the data ) and to ajax returning only
   the formated json suitable for javasccript call. It has never be so
   easy to create long-pooling call.
