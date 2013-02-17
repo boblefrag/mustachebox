@@ -28,8 +28,8 @@ Mustache Box is a set of utilities to help you presenting graph of various data 
     * Your Django models
     * ...
 
-3 parts architecture :
-______________________
+3 parts architecture
+____________________
 
 To make a graph you will need 3 parts :
 
