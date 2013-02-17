@@ -11,6 +11,11 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   installation
+   quickstart
+   backends
+   templatetags
+   json_data
 
 
 Indices and tables
