@@ -44,6 +44,10 @@ Of course there is serval features you gain with this architecture :
   different data with the same template and/or javascript, or present
   the same data in different manners easily
 
+* templatetags: when you create a graph you can use it in a
+  templatetag too. It's really easy to do. You just have to write
+  another template to hold your graph in the templatetag.
+
 ## Installation
 
 mustache box has no particular dependencies.
@@ -82,6 +86,12 @@ monitor_backend. This backend exist for testing and example purpose.
 To start playing with mustachebox, you can visit :
 
 (http://localhost:8000/graphs/monitoring/)
+
+You can also look at how the templatetag works with :
+
+(http://localhost:8000/grapher/template_tag_test/)
+
+This is the same graph as before but rendered using a templatetag.
 
 This software is released under [GPLv3](http://www.gnu.org/licenses/gpl.html)
 
