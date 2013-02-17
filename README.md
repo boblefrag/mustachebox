@@ -75,7 +75,7 @@ As mustachebox rely on a backend, you must define your own. It's realy
 easy however. For a starting point, you can use the
 monitor_backend. This backend exist for testing and example purpose.
 
-    GRAPH_BACKEND="monitoring_backend"
+    GRAPH_BACKEND="mustachebox.backends.monitoring_backend"
 
 ### include mustachbox to your urls :
 

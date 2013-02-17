@@ -38,7 +38,7 @@ monitor_backend. This backend exist for testing and example purpose.
 
 ::
 
-    GRAPH_BACKEND="monitoring_backend"
+    GRAPH_BACKEND="mustachebox.backends.monitoring_backend"
 
 Add the mustachebox urls to your project
 ________________________________________

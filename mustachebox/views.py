@@ -16,7 +16,7 @@ class GraphDetailView(DetailView):
     """
     def get_object(self):
         backend = __import__(
-            "mustachebox.backends.{0}".format(settings.GRAPH_BACKEND),
+            settings.GRAPH_BACKEND,
             fromlist=["Backend"]
             )
         klass = getattr(backend, "Backend")

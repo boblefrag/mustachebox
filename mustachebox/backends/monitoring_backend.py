@@ -2,9 +2,9 @@ import json
 import datetime
 import time
 import random
+from mustachebox.backends import BaseBackend
 
-
-class Backend(object):
+class Backend(BaseBackend):
     """
     A backend get data formated as mustache need them.
     - data : contain the data to be printed as graph
@@ -12,21 +12,7 @@ class Backend(object):
     - template_name: the template to use for rendering
     """
 
-    def __init__(self, **kwargs):
-        self.template = None
-        self.name = kwargs['name']
-        self.data = json.dumps(self.fetch(kwargs['name']))
-
-
-    def fetch(self, method):
-        """
-        Return a set of data formated information
-        """
-        meth = getattr(self, method)
-        return meth()
-
-
-    def monitoring(self):
+    def monitoring(self, **kwargs):
         """
         Return a set of data to be represented as a graph
         """
