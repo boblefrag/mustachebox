@@ -56,9 +56,63 @@
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="backends.html">Backends</a></li>
-<li class="toctree-l1"><a class="reference internal" href="templatetags.html">TemplateTags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templatetags.html">Template Tags</a></li>
 <li class="toctree-l1"><a class="reference internal" href="json_data.html">Json Output</a></li>
 </ul>
+</div>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Mustache Box is a set of utilities to help you presenting graph of various data in a Django Project. Data can come from whatever source you want :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Distant API</li>
+<li>Couchdb databases</li>
+<li>Your Django models</li>
+<li>...</li>
+</ul>
+</div></blockquote>
+<div class="section" id="parts-architecture">
+<h3>3 parts architecture :<a class="headerlink" href="#parts-architecture" title="Permalink to this headline">¶</a></h3>
+<p>To make a graph you will need 3 parts :</p>
+<blockquote>
+<div><ul class="simple">
+<li>a method : the method lie in a Backend you create (or you can
+use predefine ones). Each method is responsible for gathering
+data (the way you want) and parse it to give a formated version
+of the data to the template.</li>
+<li>A template: the template is a classic HTML file made to hold
+your graph. You can use some predefine template or use your
+custom one</li>
+<li>a javascript file : the javascript file take your data and
+render a graph using the external dependencies you need (jquery,
+d3js, raphaël, etc...)</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<p>Of course there is serval features you gain with this architecture :</p>
+<blockquote>
+<div><ul class="simple">
+<li>url auto-discovering : You do not have to design an url for each
+method. Mustache Box take the pain away for you and design urls
+for you. Of course, if you don&#8217;t like this feature, you can
+design your own urls for each graphs.</li>
+<li>request/ajax response : each url responds either to classic
+request ( rendering a template with the data ) and to ajax
+returning only the formated json suitable for javasccript
+call. It has never be so easy to create long-pooling call.</li>
+<li>reusability: mustachebow is made in a reusable fashion. You can
+mix together your methods, javasccript files and html to present
+different data with the same template and/or javascript, or
+present the same data in different manners easily</li>
+<li>templatetags: when you create a graph you can use it in a
+templatetag too. It&#8217;s really easy to do. You just have to write
+another template to hold your graph in the templatetag.</li>
+</ul>
+</div></blockquote>
+<p>This software is released under GPLv3</p>
 </div>
 </div>
 <div class="section" id="indices-and-tables">
@@ -79,6 +133,11 @@
   <h3><a href="#">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Welcome to mustachebox&#8217;s documentation!</a><ul>
+<li><a class="reference internal" href="#description">Description</a><ul>
+<li><a class="reference internal" href="#parts-architecture">3 parts architecture :</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#features">Features</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>

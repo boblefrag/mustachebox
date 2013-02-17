@@ -10,3 +10,4 @@ media/*
 mustachebox/static/js/metrics.json
 grapher
 manage.py
+docs/_build

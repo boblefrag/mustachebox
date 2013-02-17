@@ -1,2 +1,2 @@
-TemplateTags
+Template Tags
 ============
