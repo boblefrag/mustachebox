@@ -2,6 +2,8 @@
 
 [mustache box on wikipedia](http://fr.wikipedia.org/wiki/Bo%C3%AEte_%C3%A0_moustaches)
 
+Get the compete documentation on [Read The Docs](https://mustachebox.readthedocs.org/en/latest/)
+
 ## Description
 
 Mustache Box is a set of utilities to help you presenting graph of
