@@ -127,7 +127,9 @@ Getting the json
 ________________
 
 Of course you can retreive the json form of your data. For this you
-can write anywhere in jour application an ajax call tu your url :
+can write anywhere in your application an ajax call tu your url :
+
+::
 
     $.ajax({
         type:"GET",
