@@ -41,7 +41,7 @@ Of course there is serval features you gain with this architecture :
   the formated json suitable for javasccript call. It has never be so
   easy to create long-pooling call.
 
-* reusability: mustachebow is made in a reusable fashion. You can mix
+* reusability: mustachebox is made in a reusable fashion. You can mix
   together your methods, javasccript files and html to present
   different data with the same template and/or javascript, or present
   the same data in different manners easily
