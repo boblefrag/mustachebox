@@ -60,7 +60,7 @@ MustacheBox has no particular dependencies.  As a django-app it need a
 working version of Django >= 1.3.
 
 If you want to use the example backend and the page listing all the
-graphs already created you must install the docutils.
+graphs already created *you must install the docutils*.
 
 so just clone this repository :
 
