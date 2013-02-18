@@ -74,7 +74,7 @@ class QuickDjangoTest(object):
                 }
             },
             INSTALLED_APPS = self.INSTALLED_APPS + self.apps,
-            ROOT_URLCONF = 'grapher.urls',
+            ROOT_URLCONF = 'test_urls',
             GRAPH_BACKEND="mustachebox.backends.example_backend"
         )
         from django.test.simple import DjangoTestSuiteRunner
