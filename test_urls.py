@@ -1,8 +1,4 @@
-from django import VERSION
-if VERSION[1] < 4:
-    from django.conf.urls.defaults import patterns, include, url 
-else:
-    from django.conf.urls import patterns, include, url
+from django.conf.urls import patterns, include, url
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
