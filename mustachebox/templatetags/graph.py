@@ -4,7 +4,7 @@ This set of templatetags are used to show graph in any pages of your project.
 
 from django import template
 from django.conf import settings
-
+from django.utils.safestring import mark_safe
 register = template.Library()
 
 
@@ -51,3 +51,13 @@ class GraphNode(template.Node):
                 autoescape=context.autoescape))
 
 register.tag('graph', do_graph_node)
+
+
+@register.filter(name='parse_docstring')
+def parse_docstring(value):
+    if value is None:
+        return
+    from docutils import core
+    publish_args = {'source': value, 'writer_name': 'html4css1'}
+    parts = core.publish_parts(**publish_args)
+    return mark_safe(parts['fragment'])

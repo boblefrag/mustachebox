@@ -15,6 +15,9 @@ various data in a Django project. Data can come from whatever source you want :
 * Your Django models
 * ...
 
+And could be rendered using the js library of your choice : google
+charts, d3js, raphael etc...
+
 ### A graph consist of 3 parts :
 
 * a method : the method lie in a Backend you create (or you can use
@@ -53,8 +56,12 @@ Of course there is serval features you gain with this architecture :
 
 ## Installation
 
-MustacheBox has no particular dependencies.
-As a django-app it need a working version of Django >= 1.3
+MustacheBox has no particular dependencies.  As a django-app it need a
+working version of Django >= 1.3.
+
+If you want to use the example backend and the page listing all the
+graphs already created you must install the docutils.
+
 so just clone this repository :
 
 ### Clone
@@ -78,7 +85,7 @@ As MustacheBox rely on a backend, you must define your own. It's realy
 easy however. For a starting point, you can use the
 monitor_backend. This backend exist for testing and example purpose.
 
-    GRAPH_BACKEND="mustachebox.backends.monitoring_backend"
+    GRAPH_BACKEND="mustachebox.backends.example_backend"
 
 ### include MustacheBox to your urls :
 
@@ -88,12 +95,9 @@ monitor_backend. This backend exist for testing and example purpose.
 
 To start playing with MustacheBox, you can visit :
 
-(http://localhost:8000/graphs/monitoring/)
+(http://localhost:8000/grapher/all/)
 
-You can also look at how the templatetag works with :
+That list all the graphs the example backend can give you.
 
-(http://localhost:8000/grapher/template_tag_test/)
-
-This is the same graph as before but rendered using a templatetag.
 
 This software is released under [GPLv3](http://www.gnu.org/licenses/gpl.html)

@@ -29,20 +29,71 @@ class Backend(BaseBackend):
     """
 
     def area(self, **kwargs):
+        """
+        Render a graph area using google chart.
+
+        The data are formated as follow ::
+
+            {
+                2004: ['2004', 7160, 546],
+                2005: ['2005', 5654, 5435],
+                2006: ['2006', 7656, 6545],
+                2007: ['2007', 5435, 6545],
+                'label': ['year', 'sales', 'expenses']
+            }
+        """
         self.template = 'area'
         return time_serie(**kwargs)
 
     def bar_chart(self, **kwargs):
+        """
+        Render a barchart graph using google chart.
+
+        The data are formated as follow ::
+
+            {
+                2004: ['2004', 7160, 546],
+                2005: ['2005', 5654, 5435],
+                2006: ['2006', 7656, 6545],
+                2007: ['2007', 5435, 6545],
+                'label': ['year', 'sales', 'expenses']
+            }
+        """
         self.template = "barchart"
         return time_serie(**kwargs)
 
     def column_chart(self, **kwargs):
+        """
+        Render a barchart graph using google chart.
+
+        The data are formated as follow ::
+
+            {
+                2004: ['2004', 7160, 546],
+                2005: ['2005', 5654, 5435],
+                2006: ['2006', 7656, 6545],
+                2007: ['2007', 5435, 6545],
+                'label': ['year', 'sales', 'expenses']
+            }
+        """
         self.template = 'columnchart'
         return time_serie(**kwargs)
 
     def pie_chart(self):
         """
-        define a generic pie chart
+        Define a generic pie chart using google chart
+
+        The data are formated as follow::
+
+            {'label': ['name', 'count'],
+             'activities': [
+                             ['eat': 12],
+                             ['read': 5],
+                             ['work': 23],
+                             ['sleep': 4],
+                             ['wathc TV': 10]
+                           ]
+            }
         """
         self.template = "pie_chart"
 
@@ -56,17 +107,19 @@ class Backend(BaseBackend):
 
     def line_chart(self):
         """
-        define a generic line chart
-        response is a list of dict :
-        [
-          {'date': 1107151200000,
-           'value': 289
-           },
-          {'date': 1109743200000,
-           'value': 766
-           }
-           ...
-        ]
+        Define a generic line chart using D3js
+
+        Data are formated as follow ::
+
+            [
+              {'date': 1107151200000,
+               'value': 289
+              },
+              {'date': 1109743200000,
+               'value': 766
+              }
+               <...>
+            ]
         """
         response = []
         self.template = "line_chart"
