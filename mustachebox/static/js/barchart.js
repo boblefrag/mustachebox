@@ -4,7 +4,7 @@
         // define a new datatable
         dataset = renderTable(data)
         // define where the graph must be paint
-        var chart = new google.visualization.AreaChart(
+        var chart = new google.visualization.BarChart(
             document.getElementById('chart_div')
         );
         // effectively draw the graph

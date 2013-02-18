@@ -4,6 +4,23 @@ import time
 import random
 from mustachebox.backends import BaseBackend
 
+def time_serie(**kwargs):
+    """
+    Render a time serie
+    """
+    resp = {2004: ['2004'],
+            2005: ['2005'],
+            2006: ['2006'],
+            2007: ['2007']}
+
+    for i in range(2):
+        for k, v in resp.iteritems():
+            v.append(int((random.random() * random.random()) * 10000))
+        resp['label'] = ['year','sales', 'expenses']
+    return resp
+
+
+
 class Backend(BaseBackend):
     """
     A backend get data formated as mustache need them.
@@ -39,6 +56,19 @@ class Backend(BaseBackend):
         self.template = "crossfilter"
         return records
 
+    def area(self, **kwargs):
+        self.template = 'area'
+        return time_serie(**kwargs)
+
+    def bar_chart(self, **kwargs):
+        self.template = "barchart"
+        return time_serie(**kwargs)
+
+    def column_chart(self, **kwargs):
+        self.template = 'columnchart'
+        return time_serie(**kwargs)
+
+    
     def pie_chart(self):
         """
         define a generic pie chart
@@ -53,7 +83,9 @@ class Backend(BaseBackend):
 
         return {'label' : label, 'activities': activities}
 
+
         
+
 class Record(object):
     """
     Metric about an instance.
@@ -78,3 +110,5 @@ class Instance(object):
     """
     def __init__(self, name):
         self.name = "instance_%i" % name
+
+        
