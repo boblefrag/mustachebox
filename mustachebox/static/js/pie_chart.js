@@ -11,17 +11,16 @@
             dataset.addColumn('number', data.label[i]);}
         }
         rows = []
-        for(var index in data){
-            if(index!= 'label'){
-                rows.push(data[index])
-            }
+        for(var i=0; i<data.activities.length; i++){
+            rows.push(data.activities[i])
+
         }
         // add every rows to the dataset
         dataset.addRows(rows)
         // define where the graph must be paint
-        var chart = new google.visualization.AreaChart(
-            document.getElementById('chart_div')
+        var chart = new google.visualization.PieChart(
+             document.getElementById('chart_div')
         );
-        // effectively draw the graph
+         // effectively draw the graph
         chart.draw(dataset);
     }

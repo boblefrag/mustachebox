@@ -39,6 +39,21 @@ class Backend(BaseBackend):
         self.template = "crossfilter"
         return records
 
+    def pie_chart(self):
+        """
+        define a generic pie chart
+        """
+        self.template = "pie_chart"
+        
+        label = ['name', 'count']
+        activities = []
+        words = ['eat', 'read', 'work', 'sleep', 'watch TV']
+        for elem in words:
+            activities.append([elem, int(random.random() * 10)])
+
+        return {'label' : label, 'activities': activities}
+
+        
 class Record(object):
     """
     Metric about an instance.
