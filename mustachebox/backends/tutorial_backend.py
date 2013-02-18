@@ -1,8 +1,9 @@
 from mustachebox.backends import BaseBackend
 import random
 
+
 class Backend(BaseBackend):
-    
+
     def test_method(self, **kwargs):
         """
           render a simple time serie suitable for javascript graphs :
@@ -27,5 +28,5 @@ class Backend(BaseBackend):
         for i in range(2):
             for k, v in resp.iteritems():
                     v.append(int((random.random() * random.random()) * 10000))
-        resp['label'] = ['year','sales', 'expenses']
+        resp['label'] = ['year', 'sales', 'expenses']
         return resp

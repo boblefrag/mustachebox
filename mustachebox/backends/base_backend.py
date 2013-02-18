@@ -12,7 +12,6 @@ class BaseBackend(object):
         self.name = kwargs.pop('name')
         self.data = json.dumps(self.fetch(self.name, **kwargs))
 
-
     def fetch(self, method, **kwargs):
         """
         Return a set of data formated information

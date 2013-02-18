@@ -7,6 +7,7 @@ from django.conf import settings
 
 register = template.Library()
 
+
 def do_graph_node(parser, token):
     """
     render a GraphNode with the right parameters
@@ -31,8 +32,7 @@ class GraphNode(template.Node):
     def render(self, context):
         backend = __import__(
             settings.GRAPH_BACKEND,
-            fromlist=["Backend"]
-            )
+            fromlist=["Backend"])
         klass = getattr(backend, "Backend")
         try:
             name = self.method.resolve(context)
@@ -40,16 +40,14 @@ class GraphNode(template.Node):
             name = unicode(self.method)
         self.obj = klass(name=name,
                          *self.args)
-        
+
         t = template.loader.get_template(
-            'mustachebox/tags/{0}.html'.format(self.obj.template)
-            )
+            'mustachebox/tags/{0}.html'.format(self.obj.template))
 
         return t.render(
             template.Context(
                 {'object': self.obj,
-                 "STATIC_URL":context['STATIC_URL']},
-                 autoescape=context.autoescape)
-            )
+                 "STATIC_URL": context['STATIC_URL']},
+                autoescape=context.autoescape))
 
 register.tag('graph', do_graph_node)

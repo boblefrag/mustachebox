@@ -4,6 +4,7 @@ import time
 import random
 from mustachebox.backends import BaseBackend
 
+
 def time_serie(**kwargs):
     """
     Render a time serie
@@ -16,9 +17,8 @@ def time_serie(**kwargs):
     for i in range(2):
         for k, v in resp.iteritems():
             v.append(int((random.random() * random.random()) * 10000))
-        resp['label'] = ['year','sales', 'expenses']
+        resp['label'] = ['year', 'sales', 'expenses']
     return resp
-
 
 
 class Backend(BaseBackend):
@@ -53,7 +53,7 @@ class Backend(BaseBackend):
         for elem in words:
             activities.append([elem, int(random.random() * 10)])
 
-        return {'label' : label, 'activities': activities}
+        return {'label': label, 'activities': activities}
 
     def line_chart(self):
         """
@@ -75,7 +75,6 @@ class Backend(BaseBackend):
         for i in range(1500):
             date += datetime.timedelta(days=2)
             response.append({
-                    'date': time.mktime(date.timetuple()) * 1000,
-                    'value': (i*10) + int(random.random()*1000)
-                    })
+                'date': time.mktime(date.timetuple()) * 1000,
+                'value': (i * 10) + int(random.random() * 1000)})
         return response

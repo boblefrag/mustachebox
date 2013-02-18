@@ -4,7 +4,6 @@ from views import GraphDetailView, GraphListView
 
 urlpatterns = patterns(
     '',
-#    url(r'^$', HomeView.as_view(), name='home'),
     url(r'^all/$', GraphListView.as_view()),
     url(r'^template_tag_test/$', TemplateView.as_view(
         template_name="mustachebox/templatetags_test.html")),

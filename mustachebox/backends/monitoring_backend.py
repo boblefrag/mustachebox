@@ -4,6 +4,7 @@ import time
 import random
 from mustachebox.backends import BaseBackend
 
+
 def time_serie(**kwargs):
     """
     Render a time serie
@@ -16,9 +17,8 @@ def time_serie(**kwargs):
     for i in range(2):
         for k, v in resp.iteritems():
             v.append(int((random.random() * random.random()) * 10000))
-        resp['label'] = ['year','sales', 'expenses']
+        resp['label'] = ['year', 'sales', 'expenses']
     return resp
-
 
 
 class Backend(BaseBackend):
@@ -51,10 +51,10 @@ class Backend(BaseBackend):
                      'La2': record.La2,
                      'La3': record.La3,
                      'date': record.date
-                     }
-                    )
+                     })
         self.template = "crossfilter"
         return records
+
 
 class Record(object):
     """
@@ -64,13 +64,12 @@ class Record(object):
     def __init__(self, instance, date):
         """ instance is just a name to identify a set of data """
         self.instance = instance
-        self.CPU  = random.random() * 100
-        self.RAM  = random.random() * 100
+        self.CPU = random.random() * 100
+        self.RAM = random.random() * 100
         self.La1 = random.random() * 10
         self.La2 = random.random() * 10
         self.La3 = random.random() * 10
         self.date = time.mktime(date.timetuple())
-
 
 
 class Instance(object):
@@ -80,5 +79,3 @@ class Instance(object):
     """
     def __init__(self, name):
         self.name = "instance_%i" % name
-
-        

@@ -3,6 +3,7 @@ from django.views.generic.list import ListView
 from django.conf import settings
 from django import http
 
+
 class GraphListView(ListView):
     """
     This class return all the avalaible graphs in the current backend
@@ -17,8 +18,8 @@ class GraphListView(ListView):
         """
         backend = __import__(
             settings.GRAPH_BACKEND,
-            fromlist=["Backend"]
-            )
+            fromlist=["Backend"])
+
         klass = getattr(backend, "Backend")
         responses = []
         for k, v in klass.__dict__.iteritems():
@@ -29,29 +30,29 @@ class GraphListView(ListView):
 
 class GraphDetailView(DetailView):
     """
-    This class represent a graph data.
-    The data you will use to represent a graph may not be part of you application
-    nor your project. It can be somethin' commin' from an external API, a nosql backend, 
-    your cache backend and so one.
+    This class represent a graph data.  The data you will use to
+    represent a graph may not be part of you application nor your
+    project. It can be somethin' commin' from an external API, a nosql
+    backend, your cache backend and so one.
 
-    So GraphDetailView implement a "get object" method to retreive the data using the backend you have define
-    in your settings.
+    So GraphDetailView implement a "get object" method to retreive the
+    data using the backend you have define in your settings.
 
     Look at mustachebox.backends for an example backend
     """
+
     def get_object(self):
         backend = __import__(
             settings.GRAPH_BACKEND,
-            fromlist=["Backend"]
-            )
+            fromlist=["Backend"])
         klass = getattr(backend, "Backend")
         try:
             obj = klass(**self.kwargs)
         except AttributeError:
             raise http.Http404
         return obj
-    
-    def get_context_object_name(self,obj):
+
+    def get_context_object_name(self, obj):
         return "object"
 
     def get_template_names(self):
@@ -60,6 +61,9 @@ class GraphDetailView(DetailView):
     def render_to_response(self, context, **response_kwargs):
         if self.request.is_ajax():
             return http.HttpResponse(context['object'].data,
-                                 content_type='application/json',
-                                 **response_kwargs)
-        return super(GraphDetailView, self).render_to_response(context, **response_kwargs)
+                                     content_type='application/json',
+                                     **response_kwargs)
+        return super(
+            GraphDetailView, self).render_to_response(
+                context,
+                **response_kwargs)
