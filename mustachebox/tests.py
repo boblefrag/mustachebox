@@ -6,6 +6,7 @@ from django.test import TestCase
 from django.test.client import Client
 from django import template
 
+
 class TestGraphList(TestCase):
 
     def test_response(self):
@@ -14,9 +15,7 @@ class TestGraphList(TestCase):
         """
         client = Client()
         response = client.get("/grapher/all/")
-        self.assertEqual(
-            response.status_code, 200
-            )
+        self.assertEqual(response.status_code, 200)
 
         self.assertEqual(len(response.context['object_list']), 5)
 
@@ -47,42 +46,35 @@ class TestTemplateTags(TestCase):
         c = template.Context({"STATIC_URL": "/static/"})
         self.assertIsNot(len(t.render(c)), 0)
 
+
 class TestGraphPages(TestCase):
+
     def test_area(self):
         client = Client()
         response = client.get("/grapher/area/")
-        self.assertEqual(
-            response.status_code, 200
-            )
+        self.assertEqual(response.status_code, 200)
 
     def test_bar_chart(self):
         client = Client()
         response = client.get("/grapher/bar_chart/")
-        self.assertEqual(
-            response.status_code, 200
-            )
+        self.assertEqual(response.status_code, 200)
+
     def test_column_chart(self):
         client = Client()
         response = client.get("/grapher/column_chart/")
-        self.assertEqual(
-            response.status_code, 200
-            )
+        self.assertEqual(response.status_code, 200)
+
     def test_pie_chart(self):
         client = Client()
         response = client.get("/grapher/pie_chart/")
-        self.assertEqual(
-            response.status_code, 200
-            )
+        self.assertEqual(response.status_code, 200)
+
     def test_line_chart(self):
         client = Client()
         response = client.get("/grapher/line_chart/")
-        self.assertEqual(
-            response.status_code, 200
-            )
+        self.assertEqual(response.status_code, 200)
 
     def test_404(self):
         client = Client()
         response = client.get("/grapher/this_chart_does_not_exist/")
-        self.assertEqual(
-            response.status_code, 404
-            )
+        self.assertEqual(response.status_code, 404)
