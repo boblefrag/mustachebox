@@ -13,10 +13,10 @@ Contents:
 
    installation
    quickstart
+   graph_api
    backends
    templatetags
    json_data
-
 
 Description
 -----------
@@ -47,7 +47,7 @@ To make a graph you will need 3 parts :
       d3js, raphaël, etc...)
 
 Features
---------
+________
 
 Of course there is serval features you gain with this architecture :
 
@@ -72,6 +72,7 @@ Of course there is serval features you gain with this architecture :
 
 
 This software is released under GPLv3
+
 
 Indices and tables
 ==================

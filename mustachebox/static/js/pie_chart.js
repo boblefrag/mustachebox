@@ -11,8 +11,8 @@
             dataset.addColumn('number', piedata.label[i]);}
         }
         rows = []
-        for(var i=0; i<piedata.activities.length; i++){
-            rows.push(piedata.activities[i])
+        for(var i=0; i<piedata.records.length; i++){
+            rows.push(piedata.records[i])
 
         }
         // add every rows to the dataset

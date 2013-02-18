@@ -86,7 +86,7 @@ class Backend(BaseBackend):
         The data are formated as follow::
 
             {'label': ['name', 'count'],
-             'activities': [
+             'records': [
                              ['eat': 12],
                              ['read': 5],
                              ['work': 23],
@@ -103,7 +103,7 @@ class Backend(BaseBackend):
         for elem in words:
             activities.append([elem, int(random.random() * 10)])
 
-        return {'label': label, 'activities': activities}
+        return {'label': label, 'records': activities}
 
     def line_chart(self):
         """

@@ -62,3 +62,6 @@ To start playing with MustacheBox, you can visit :
 (http://localhost:8000/grapher/all/)
 
 That list all the graphs the example backend can give you.
+
+You can learn how to use mustachebox and create your own graph with
+following :doc:`quickstart`
