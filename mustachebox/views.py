@@ -1,6 +1,31 @@
 from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
 from django.conf import settings
 from django import http
+
+class GraphListView(ListView):
+    """
+    This class return all the avalaible graphs in the current backend
+    """
+    template_name = "mustachebox/all_graph.html"
+
+    def get_queryset(self):
+        """
+        This method does not return a queryset because there is no
+        database in this app.
+        But it return a list of avalaible grapg to be displayed.
+        """
+        backend = __import__(
+            settings.GRAPH_BACKEND,
+            fromlist=["Backend"]
+            )
+        klass = getattr(backend, "Backend")
+        responses = []
+        for k, v in klass.__dict__.iteritems():
+            if hasattr(v, '__call__'):
+                responses.append({'name': k, 'doc': v.__doc__})
+        return responses
+
 
 class GraphDetailView(DetailView):
     """
@@ -20,9 +45,10 @@ class GraphDetailView(DetailView):
             fromlist=["Backend"]
             )
         klass = getattr(backend, "Backend")
-        obj = klass(**self.kwargs)
-        
-
+        try:
+            obj = klass(**self.kwargs)
+        except AttributeError:
+            raise http.Http404
         return obj
     
     def get_context_object_name(self,obj):

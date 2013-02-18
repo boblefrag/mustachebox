@@ -12,7 +12,7 @@ def do_graph_node(parser, token):
     render a GraphNode with the right parameters
     """
     try:
-        arguments = token.split_contents()
+        arguments = token.contents.split()
         method = arguments[1]
         args = arguments[2:]
     except ValueError:
@@ -24,17 +24,23 @@ def do_graph_node(parser, token):
 
 class GraphNode(template.Node):
     def __init__(self, method, *args):
-        self.method = method
+        self.method = template.Variable(method)
         self.args = args
+        self. obj = None
+
+    def render(self, context):
         backend = __import__(
             settings.GRAPH_BACKEND,
             fromlist=["Backend"]
             )
         klass = getattr(backend, "Backend")
-        self.obj = klass(name=self.method, *self.args)
-
-    def render(self, context):
-
+        try:
+            name = self.method.resolve(context)
+        except template.VariableDoesNotExist:
+            name = unicode(self.method)
+        self.obj = klass(name=name,
+                         *self.args)
+        
         t = template.loader.get_template(
             'mustachebox/tags/{0}.html'.format(self.obj.template)
             )

@@ -5,7 +5,7 @@
         dataset = renderTable(data)
         // define where the graph must be paint
         var chart = new google.visualization.BarChart(
-            document.getElementById('chart_div')
+            document.getElementById('barchart_div')
         );
         // effectively draw the graph
         chart.draw(dataset);
