@@ -6,8 +6,8 @@ Get the compete documentation on [Read The Docs](https://mustachebox.readthedocs
 
 ## Description
 
-Mustache Box is a set of utilities to help you presenting graph of
-various data in a Django Project. Data can come from whatever source you want :
+MustacheBox is a set of utilities to help you presenting graph of
+various data in a Django project. Data can come from whatever source you want :
 
 * Distant API
 * Couchdb databases
@@ -31,20 +31,20 @@ graph. You can use some predefine template or use your custom one
 
 Of course there is serval features you gain with this architecture :
 
-* url auto-discovering : You do not have to design an url for each
-  method. Mustache Box take the pain away for you and design urls for
+* url auto-discovering : you do not have to design an url for each
+  method. MustacheBox take the pain away for you and design urls for
   you. Of course, if you don't like this feature, you can design your
   own urls for each graphs.
 
 * request/ajax response : each url responds either to classic request
   ( rendering a template with the data ) and to ajax returning only
-  the formated json suitable for javasccript call. It has never be so
+  the formated json suitable for javascript call. It has never be so
   easy to create long-pooling call.
 
-* reusability: mustachebox is made in a reusable fashion. You can mix
-  together your methods, javasccript files and html to present
+* reusability: MustacheBox is made in a reusable fashion. You can mix
+  together your methods, javascript files and html to present
   different data with the same template and/or javascript, or present
-  the same data in different manners easily
+  the same data in different manners easily.
 
 * templatetags: when you create a graph you can use it in a
   templatetag too. It's really easy to do. You just have to write
@@ -52,7 +52,7 @@ Of course there is serval features you gain with this architecture :
 
 ## Installation
 
-mustache box has no particular dependencies.
+MustacheBox has no particular dependencies.
 As a django-app it need a working version of Django >= 1.3
 so just clone this repository :
 
@@ -73,19 +73,19 @@ and add mustachebox to the list of your installed apps :
 
 ### define a GRAPH_BACKEND
 
-As mustachebox rely on a backend, you must define your own. It's realy
+As MustacheBox rely on a backend, you must define your own. It's realy
 easy however. For a starting point, you can use the
 monitor_backend. This backend exist for testing and example purpose.
 
     GRAPH_BACKEND="mustachebox.backends.monitoring_backend"
 
-### include mustachbox to your urls :
+### include MustacheBox to your urls :
 
     url(r'^graphs/', include('mustachebox.urls')),
 
 ### Enjoy:
 
-To start playing with mustachebox, you can visit :
+To start playing with MustacheBox, you can visit :
 
 (http://localhost:8000/graphs/monitoring/)
 
@@ -96,4 +96,3 @@ You can also look at how the templatetag works with :
 This is the same graph as before but rendered using a templatetag.
 
 This software is released under [GPLv3](http://www.gnu.org/licenses/gpl.html)
-
