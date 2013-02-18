@@ -1,5 +1,5 @@
 from django import VERSION
-if VERSION[1] < 3:
+if VERSION[1] < 4:
     from django.conf.urls.defaults import patterns, include, url 
 else:
     from django.conf.urls import patterns, include, url
