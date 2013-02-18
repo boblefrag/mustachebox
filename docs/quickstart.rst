@@ -42,7 +42,7 @@ look for a class named Backend. This class must inherit
 Define your first method
 ------------------------
 
-Jou can write any method you want, doing any work you need but it must
+You can write any method you want, doing any work you need but it must
 return serializable data. For exemple, you cannot return python
 objects or datetime objects.
 
