@@ -1,5 +1,5 @@
 #  MustacheBox
-[!buid status](https://api.travis-ci.org/boblefrag/mustachebox.png)
+![buid status](https://api.travis-ci.org/boblefrag/mustachebox.png)
 [mustache box on wikipedia](http://fr.wikipedia.org/wiki/Bo%C3%AEte_%C3%A0_moustaches)
 
 Get the compete documentation on [Read The Docs](https://mustachebox.readthedocs.org/en/latest/)
