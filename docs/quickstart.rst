@@ -2,17 +2,17 @@ Tutorial
 ========
 
 In this tutorial I will show you how to create your own backend and
-how to render graph using this backend. 
+how to render graph using this backend.
 
 Create the Backend
 ------------------
 
 The backend file can be located anywhere in your project. For example,
-the monitoring backend of mustachebox is located in
+the example backend of mustachebox is located in
 
 ::
 
-    mustachebox/backends/monitoring_backend
+    mustachebox/backends/example_backend
 
 But this is only an example and you can create your own backend in
 your own apps if you prefer.
@@ -49,7 +49,7 @@ objects or datetime objects.
 Your method will be given a kwarg parameter. You can use this
 parameter to change the data this method return.
 
-for this tutorial, we will use random to generate a time serie. This
+for this tutorial, we will use pre-generated data to generate a time serie. This
 time serie will be render as is by the method because mustachebox will
 convert it to json befor rendering the template.
 
@@ -58,19 +58,21 @@ convert it to json befor rendering the template.
     def test_method(self, **kwargs):
         """
         render a simple time serie suitable for javascript graphs :
-        {
-            "expenses": [1442, 2357, 8080, 765],
-            "sales": [5205, 264, 3701, 324],
-            "year": [2004, 2005, 2006, 2007]
-        }
+            {
+                2004: ['2004', 7160, 546],
+                2005: ['2005', 5654, 5435],
+                2006: ['2006', 7656, 6545],
+                2007: ['2007', 5435, 6545],
+                'label': ['year', 'sales', 'expenses']
+            }
         """
-
-        response = {'year':[2004, 2005, 2006, 2007],'sales': [], 'expenses': []}
-        for i in range(4):
-            response['sales'].append(
-                int((random.random() * random.random()) * 10000))
-            response['expenses'].append(
-                int((random.random() * random.random()) * 10000))
+        response = {
+                2004: ['2004', 7160, 546],
+                2005: ['2005', 5654, 5435],
+                2006: ['2006', 7656, 6545],
+                2007: ['2007', 5435, 6545],
+                'label': ['year', 'sales', 'expenses']
+            }
         return response
 
 
@@ -79,7 +81,8 @@ You can now test the method in the shell ::
     python manage.py shell
     >>> from mustachebox.backends.tutorial_backend import Backend
     >>> Backend(name="test_method").data
-    '{"expenses": [1616, 3772, 3, 1439], "sales": [3085, 8789, 7445, 1782], "year": [2004, 2005, 2006, 2007]}'
+    '{2004: ['2004', 7160, 546], 2005: ['2005', 5654, 5435], 2006:
+    ['2006', 7656, 6545], 2007: ['2007', 5435, 6545], 'label': ['year', 'sales', 'expenses']}'
 
 
 Rendering

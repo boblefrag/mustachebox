@@ -21,6 +21,7 @@ class TestGraphList(TestCase):
 
 
 class TestTemplateTags(TestCase):
+
     def test_area(self):
         t = template.Template("{% load graph %} {% graph area %}")
         c = template.Context({"STATIC_URL": "/static/"})

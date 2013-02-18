@@ -5,7 +5,12 @@ Requirements
 ------------
 
 mustache box has no particular dependencies. As a django-app it need a
-working version of Django >= 1.3 so just clone this repository : 
+working version of Django >= 1.3.
+
+But in order to use the example backend, particulary the page listing
+all the graphs you can use, you have to install the docutils.
+
+so just clone this repository :
 
 Cloning the repository
 ----------------------
@@ -38,7 +43,7 @@ monitor_backend. This backend exist for testing and example purpose.
 
 ::
 
-    GRAPH_BACKEND="mustachebox.backends.monitoring_backend"
+    GRAPH_BACKEND="mustachebox.backends.example_backend"
 
 Add the mustachebox urls to your project
 ________________________________________
@@ -52,16 +57,8 @@ include mustachbox to your urls :
 Testing
 -------
 
-To validate that everything is correctly installed you can use those
-urls :
+To start playing with MustacheBox, you can visit :
 
-For testing the main views :
+(http://localhost:8000/grapher/all/)
 
-- http://localhost:8000/graphs/monitoring/
-
-For testing the templatetag system :
-
-- http://localhost:8000/grapher/template_tag_test/
-
-This is the same graph but rendered using a templatetags instead of
-the view.
+That list all the graphs the example backend can give you.
