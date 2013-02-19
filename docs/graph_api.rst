@@ -232,3 +232,50 @@ Complete Example
                 'date': time.mktime(date.timetuple()) * 1000,
                 'value': (i * 10) + int(random.random() * 1000)})
         return response
+
+Multi Line Chart
+________________
+
+.. image:: images/multiline.png
+
+Data formating
+~~~~~~~~~~~~~~
+
+The data must be a list of dict containing 3 key :
+
+* date : a timestamp multiplied by 1000 (python timestamps are in
+  seconds and javascript timestamps are in milliseconds)
+
+* value : an integer or a float
+
+* serie : the name of the serie the data is belonging to.
+
+Rendering
+~~~~~~~~~
+
+To render your chart you have to call the 'multiline_chart' template ::
+
+    self.template = "multiline_chart"
+
+Complete Example
+~~~~~~~~~~~~~~~~
+::
+
+    def multiserie_linechart(self, **kwargs):
+        self.template = "multiline_chart"
+        response = []
+        for a in range(3):  # we render a 3 series chart
+            date = datetime.datetime(2005, 1, 1, 0, 0, 0)
+            for i in range(200):
+                if a % 3 == 0:
+                    mult = -10
+                elif a % 2 == 0:
+                    mult = 1
+                else:
+                    mult = 10
+                date += datetime.timedelta(days=2)
+                response.append({
+                    'date': time.mktime(date.timetuple()) * 1000,
+                    'value': (i * mult) + int(random.random() * 1000),
+                    'serie': a})
+        return response

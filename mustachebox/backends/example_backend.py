@@ -139,14 +139,12 @@ class Backend(BaseBackend):
 
             [
               {'date': 1109743200000,
-              'value1': 453,
-              'value2': 543,
-              'value3': 458
+              'value': 453,
+              'serie': "serie1"
               },
               {'date': 1107151200000,
-               'value1': 435,
-               'value2': 897,
-               'value': 123
+               'value': 435,
+               'serie': "serie2",
               },
               ...
             ]
