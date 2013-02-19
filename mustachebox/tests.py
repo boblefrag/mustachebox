@@ -7,6 +7,7 @@ from django.test.client import Client
 from django import template
 from django.template import TemplateSyntaxError
 
+
 class TestGraphList(TestCase):
 
     def test_response(self):

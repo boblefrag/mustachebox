@@ -166,6 +166,5 @@ class Backend(BaseBackend):
                 response.append({
                     'date': time.mktime(date.timetuple()) * 1000,
                     'value': (i * mult) + int(random.random() * 1000),
-                    'serie': a
-                    })
+                    'serie': a})
         return response
