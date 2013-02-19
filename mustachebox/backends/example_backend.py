@@ -79,7 +79,7 @@ class Backend(BaseBackend):
         self.template = 'columnchart'
         return time_serie(**kwargs)
 
-    def pie_chart(self):
+    def pie_chart(self, **kwargs):
         """
         Define a generic pie chart using google chart
 
@@ -105,7 +105,7 @@ class Backend(BaseBackend):
 
         return {'label': label, 'records': activities}
 
-    def line_chart(self):
+    def line_chart(self, **kwargs):
         """
         Define a generic line chart using D3js
 
@@ -129,4 +129,43 @@ class Backend(BaseBackend):
             response.append({
                 'date': time.mktime(date.timetuple()) * 1000,
                 'value': (i * 10) + int(random.random() * 1000)})
+        return response
+
+    def multiserie_linechart(self, **kwargs):
+        """
+        Define a multi-line graph using D3js
+
+        data are formated as follow ::
+
+            [
+              {'date': 1109743200000,
+              'value1': 453,
+              'value2': 543,
+              'value3': 458
+              },
+              {'date': 1107151200000,
+               'value1': 435,
+               'value2': 897,
+               'value': 123
+              },
+              ...
+            ]
+        """
+        self.template = "multiline_chart"
+        response = []
+        for a in range(3):  # we render a 3 series chart
+            date = datetime.datetime(2005, 1, 1, 0, 0, 0)
+            for i in range(200):
+                if a % 3 == 0:
+                    mult = -10
+                elif a % 2 == 0:
+                    mult = 1
+                else:
+                    mult = 10
+                date += datetime.timedelta(days=2)
+                response.append({
+                    'date': time.mktime(date.timetuple()) * 1000,
+                    'value': (i * mult) + int(random.random() * 1000),
+                    'serie': a
+                    })
         return response

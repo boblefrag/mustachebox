@@ -11,7 +11,7 @@ class QuickDjangoTest(object):
 
         >>> QuickDjangoTest('app1', 'app2')
 
-    Based on a script published by Lukasz Dziedzia at: 
+    Based on a script published by Lukasz Dziedzia at:
     http://stackoverflow.com/questions/3841725/how-to-launch-tests-for-django-reusable-app
     """
     DIRNAME = os.path.dirname(__file__)
@@ -20,6 +20,7 @@ class QuickDjangoTest(object):
         'django.contrib.contenttypes',
         'django.contrib.sessions',
         'django.contrib.admin',
+        'django_coverage'
     )
 
     def __init__(self, *args, **kwargs):
@@ -77,8 +78,10 @@ class QuickDjangoTest(object):
             ROOT_URLCONF = 'test_urls',
             GRAPH_BACKEND="mustachebox.backends.example_backend"
         )
-        from django.test.simple import DjangoTestSuiteRunner
-        failures = DjangoTestSuiteRunner().run_tests(self.apps, verbosity=1)
+
+
+        from django_coverage.coverage_runner import CoverageRunner
+        failures = CoverageRunner().run_tests(self.apps, verbosity=1)
         if failures:
             sys.exit(failures)
 

@@ -5,7 +5,7 @@ Here we test the example_bakends methods
 from django.test import TestCase
 from django.test.client import Client
 from django import template
-
+from django.template import TemplateSyntaxError
 
 class TestGraphList(TestCase):
 
@@ -17,7 +17,7 @@ class TestGraphList(TestCase):
         response = client.get("/grapher/all/")
         self.assertEqual(response.status_code, 200)
 
-        self.assertEqual(len(response.context['object_list']), 5)
+        self.assertEqual(len(response.context['object_list']), 6)
 
 
 class TestTemplateTags(TestCase):
@@ -49,6 +49,13 @@ class TestTemplateTags(TestCase):
 
 
 class TestGraphPages(TestCase):
+
+    def test_ajax(self):
+        client = Client()
+        response = self.client.get("/grapher/area/",
+                                   HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        self.assertEqual(response._headers['content-type'][1],
+                         'application/json')
 
     def test_area(self):
         client = Client()

@@ -16,7 +16,7 @@ def do_graph_node(parser, token):
         arguments = token.contents.split()
         method = arguments[1]
         args = arguments[2:]
-    except ValueError:
+    except IndexError:
         raise template.TemplateSyntaxError, """
 %r tag requires at least 1 argument, the name of the graph you want to render
 """.format(token.contents.split()[0])
@@ -55,8 +55,7 @@ register.tag('graph', do_graph_node)
 
 @register.filter(name='parse_docstring')
 def parse_docstring(value):
-    if value is None:
-        return
+
     from docutils import core
     publish_args = {'source': value, 'writer_name': 'html4css1'}
     parts = core.publish_parts(**publish_args)
