@@ -32,7 +32,7 @@ charts, d3js, raphael etc... """,
     author="Yohann Gabory",
     author_email="yohann@gabory.fr",
     url="https://bitbucket.org/boblefrag/mustachebox",
-    download_url="https://bitbucket.org/boblefrag/mustachebox/get/v.02.tar.gz",
+    download_url="https://bitbucket.org/boblefrag/mustachebox/get/mustachebox-0.2.tar.gz",
     requires=REQUIRES,
     classifiers = [
     'Development Status :: 4 - Beta',
